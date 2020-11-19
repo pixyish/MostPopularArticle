@@ -15,6 +15,9 @@
 		4BB22E6A2566D9060033AABC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB22E682566D9060033AABC /* LaunchScreen.storyboard */; };
 		4BB22E752566D9070033AABC /* PopularArticleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB22E742566D9070033AABC /* PopularArticleTests.swift */; };
 		4BB22E802566D9070033AABC /* PopularArticleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB22E7F2566D9070033AABC /* PopularArticleUITests.swift */; };
+		4BB22E8F2566DB800033AABC /* PAURLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB22E8E2566DB800033AABC /* PAURLRequest.swift */; };
+		4BB22E912566DD670033AABC /* PANetwrokManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB22E902566DD670033AABC /* PANetwrokManager.swift */; };
+		4BB22E942566DDD90033AABC /* PAConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB22E932566DDD90033AABC /* PAConstant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		4BB22E7B2566D9070033AABC /* PopularArticleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopularArticleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB22E7F2566D9070033AABC /* PopularArticleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularArticleUITests.swift; sourceTree = "<group>"; };
 		4BB22E812566D9070033AABC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BB22E8E2566DB800033AABC /* PAURLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAURLRequest.swift; sourceTree = "<group>"; };
+		4BB22E902566DD670033AABC /* PANetwrokManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PANetwrokManager.swift; sourceTree = "<group>"; };
+		4BB22E932566DDD90033AABC /* PAConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAConstant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,8 @@
 		4BB22E5C2566D9010033AABC /* PopularArticle */ = {
 			isa = PBXGroup;
 			children = (
+				4BB22E922566DDCA0033AABC /* Utils */,
+				4BB22E8D2566DB080033AABC /* NetworkApiCall */,
 				4BB22E5D2566D9010033AABC /* AppDelegate.swift */,
 				4BB22E5F2566D9010033AABC /* SceneDelegate.swift */,
 				4BB22E612566D9010033AABC /* ViewController.swift */,
@@ -127,6 +135,23 @@
 			);
 			path = PopularArticleUITests;
 			sourceTree = "<group>";
+		};
+		4BB22E8D2566DB080033AABC /* NetworkApiCall */ = {
+			isa = PBXGroup;
+			children = (
+				4BB22E8E2566DB800033AABC /* PAURLRequest.swift */,
+				4BB22E902566DD670033AABC /* PANetwrokManager.swift */,
+			);
+			path = NetworkApiCall;
+			sourceTree = SOURCE_ROOT;
+		};
+		4BB22E922566DDCA0033AABC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4BB22E932566DDD90033AABC /* PAConstant.swift */,
+			);
+			path = Utils;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -190,6 +215,7 @@
 		4BB22E522566D9010033AABC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = PA;
 				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Xebia Tech";
@@ -261,6 +287,9 @@
 			files = (
 				4BB22E622566D9010033AABC /* ViewController.swift in Sources */,
 				4BB22E5E2566D9010033AABC /* AppDelegate.swift in Sources */,
+				4BB22E912566DD670033AABC /* PANetwrokManager.swift in Sources */,
+				4BB22E8F2566DB800033AABC /* PAURLRequest.swift in Sources */,
+				4BB22E942566DDD90033AABC /* PAConstant.swift in Sources */,
 				4BB22E602566D9010033AABC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +465,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PopularArticle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,6 +483,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PopularArticle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
