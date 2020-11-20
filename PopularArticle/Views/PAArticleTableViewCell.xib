@@ -30,20 +30,26 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOp-st-c71">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label sfidsjf djgio sjgjiosfjg sigj ijg sgjdg sgs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOp-st-c71">
                         <rect key="frame" x="90" y="40.5" width="210" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.47999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4Qg-om-ipB">
-                        <rect key="frame" x="170" y="68" width="130" height="32"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEE-I3-puk">
+                        <rect key="frame" x="90" y="74.5" width="107" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="0.47999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4Qg-om-ipB">
+                        <rect key="frame" x="200" y="68" width="100" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="130" id="cra-VG-1xa"/>
+                            <constraint firstAttribute="width" constant="100" id="cra-VG-1xa"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="6" maxY="0.0"/>
-                        <state key="normal" title="date sidjfid" image="calendar_icon">
+                        <state key="normal" image="calendar_icon">
                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                         </state>
@@ -51,13 +57,16 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="4Qg-om-ipB" firstAttribute="top" secondItem="HOp-st-c71" secondAttribute="bottom" constant="8" id="40z-jH-8BI"/>
-                    <constraint firstAttribute="bottom" secondItem="4Qg-om-ipB" secondAttribute="bottom" constant="8" id="GTG-eb-SMD"/>
+                    <constraint firstItem="4Qg-om-ipB" firstAttribute="leading" secondItem="GEE-I3-puk" secondAttribute="trailing" constant="3" id="CNR-Vi-K91"/>
+                    <constraint firstAttribute="bottom" secondItem="4Qg-om-ipB" secondAttribute="bottom" priority="250" constant="8" id="GTG-eb-SMD"/>
                     <constraint firstItem="HOp-st-c71" firstAttribute="top" secondItem="2Xj-0c-aP4" secondAttribute="bottom" constant="10" id="c56-B6-5y3"/>
                     <constraint firstAttribute="trailing" secondItem="2Xj-0c-aP4" secondAttribute="trailing" constant="20" id="cis-hG-J18"/>
                     <constraint firstItem="2Xj-0c-aP4" firstAttribute="leading" secondItem="W4F-hL-rDr" secondAttribute="trailing" constant="10" id="dge-6N-TuQ"/>
                     <constraint firstItem="4Qg-om-ipB" firstAttribute="trailing" secondItem="2Xj-0c-aP4" secondAttribute="trailing" id="hOR-Ym-Dh3"/>
+                    <constraint firstItem="GEE-I3-puk" firstAttribute="leading" secondItem="2Xj-0c-aP4" secondAttribute="leading" id="hTs-pC-tTJ"/>
                     <constraint firstItem="2Xj-0c-aP4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="lKL-IO-gqc"/>
                     <constraint firstItem="HOp-st-c71" firstAttribute="trailing" secondItem="2Xj-0c-aP4" secondAttribute="trailing" id="lfs-1T-q05"/>
+                    <constraint firstItem="GEE-I3-puk" firstAttribute="centerY" secondItem="4Qg-om-ipB" secondAttribute="centerY" id="m9H-5Z-RZj"/>
                     <constraint firstItem="W4F-hL-rDr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="nYm-u7-2YT"/>
                     <constraint firstItem="HOp-st-c71" firstAttribute="leading" secondItem="2Xj-0c-aP4" secondAttribute="leading" id="oBO-Me-8hi"/>
                     <constraint firstItem="W4F-hL-rDr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uxI-6R-4qG"/>
@@ -65,9 +74,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="dateLbl" destination="4Qg-om-ipB" id="r16-JA-gT4"/>
+                <outlet property="dateBtn" destination="4Qg-om-ipB" id="Nfs-Zv-Cys"/>
                 <outlet property="descriptionLbl" destination="HOp-st-c71" id="PmJ-a5-dHa"/>
                 <outlet property="imgView" destination="W4F-hL-rDr" id="xbe-xh-PYm"/>
+                <outlet property="sectionLbl" destination="GEE-I3-puk" id="vnc-Vj-eUh"/>
                 <outlet property="titleLbl" destination="2Xj-0c-aP4" id="vT6-SH-rWo"/>
             </connections>
             <point key="canvasLocation" x="165.21739130434784" y="72.991071428571431"/>

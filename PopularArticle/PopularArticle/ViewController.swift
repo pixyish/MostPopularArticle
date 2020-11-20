@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     var results:[Results]?
+    @IBOutlet weak private var tblView:UITableView!
+    private var reuseIdentifier = "articleCell"
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -19,7 +21,13 @@ class ViewController: UIViewController {
 
     //MARK:- Private Methods
     func setUI() {
+        self.registerXib()
         self.callApi(path: PAConstant.getArticleURl(path: .path7))
+    }
+    
+    func registerXib() {
+        let cellNib = UINib(nibName: "PAArticleTableViewCell", bundle: nil)
+        self.tblView.register(cellNib, forCellReuseIdentifier: reuseIdentifier)
     }
     
     func parseResponse(_ data: Data) -> JSONResult? {
@@ -27,9 +35,6 @@ class ViewController: UIViewController {
             let decoder = JSONDecoder()
             let responseModel = try? decoder.decode(JSONResult.self, from: data)
             return responseModel
-        } catch {
-            print("Data parsing error: \(error.localizedDescription)")
-            return nil
         }
     }
     
@@ -39,7 +44,8 @@ class ViewController: UIViewController {
                 if let jsonResult = self?.parseResponse(response as! Data) {
                     if let status = jsonResult.status,status.uppercased().contains("OK"), let dataResult = jsonResult.results {
                             self?.results = dataResult
-                            print(self?.results?.count)
+                            self?.tblView.reloadData()
+                            print(self?.results?.count ?? 0)
                      }
                    }
             } else {
@@ -49,5 +55,25 @@ class ViewController: UIViewController {
             }
         }
     }
+}
+
+extension ViewController:UITableViewDataSource,UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.results?.count ?? 0
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let articleCell = tblView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? PAArticleTableViewCell {
+            articleCell.resultInfo = self.results?[indexPath.row]
+            return articleCell
+        }
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "defaultCell")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+        
 }
 
