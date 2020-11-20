@@ -24,6 +24,8 @@
 		4BB22E9E2566EECF0033AABC /* Media-metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB22E9D2566EECF0033AABC /* Media-metadata.swift */; };
 		4BB22EA02566F9950033AABC /* JSONResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB22E9F2566F9950033AABC /* JSONResult.swift */; };
 		4BB22EA22566FABA0033AABC /* PAExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB22EA12566FABA0033AABC /* PAExtensions.swift */; };
+		4BB22EA62566FE3A0033AABC /* PAArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB22EA42566FE3A0033AABC /* PAArticleTableViewCell.swift */; };
+		4BB22EA72566FE3A0033AABC /* PAArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB22EA52566FE3A0033AABC /* PAArticleTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		4BB22E9D2566EECF0033AABC /* Media-metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Media-metadata.swift"; sourceTree = "<group>"; };
 		4BB22E9F2566F9950033AABC /* JSONResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONResult.swift; sourceTree = "<group>"; };
 		4BB22EA12566FABA0033AABC /* PAExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAExtensions.swift; sourceTree = "<group>"; };
+		4BB22EA42566FE3A0033AABC /* PAArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAArticleTableViewCell.swift; sourceTree = "<group>"; };
+		4BB22EA52566FE3A0033AABC /* PAArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PAArticleTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,7 @@
 		4BB22E5C2566D9010033AABC /* PopularArticle */ = {
 			isa = PBXGroup;
 			children = (
+				4BB22EA32566FDFD0033AABC /* Views */,
 				4BB22E982566EE880033AABC /* Models */,
 				4BB22E922566DDCA0033AABC /* Utils */,
 				4BB22E8D2566DB080033AABC /* NetworkApiCall */,
@@ -185,6 +190,15 @@
 				4BB22E9A2566EEC10033AABC /* Results.swift */,
 			);
 			path = Models;
+			sourceTree = SOURCE_ROOT;
+		};
+		4BB22EA32566FDFD0033AABC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4BB22EA42566FE3A0033AABC /* PAArticleTableViewCell.swift */,
+				4BB22EA52566FE3A0033AABC /* PAArticleTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -295,6 +309,7 @@
 				4BB22E6A2566D9060033AABC /* LaunchScreen.storyboard in Resources */,
 				4BB22E672566D9060033AABC /* Assets.xcassets in Resources */,
 				4BB22E652566D9010033AABC /* Main.storyboard in Resources */,
+				4BB22EA72566FE3A0033AABC /* PAArticleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +338,7 @@
 				4BB22E5E2566D9010033AABC /* AppDelegate.swift in Sources */,
 				4BB22EA22566FABA0033AABC /* PAExtensions.swift in Sources */,
 				4BB22E912566DD670033AABC /* PANetwrokManager.swift in Sources */,
+				4BB22EA62566FE3A0033AABC /* PAArticleTableViewCell.swift in Sources */,
 				4BB22E8F2566DB800033AABC /* PAURLRequest.swift in Sources */,
 				4BB22E972566E9DF0033AABC /* Reach.swift in Sources */,
 				4BB22E942566DDD90033AABC /* PAConstant.swift in Sources */,
