@@ -12,6 +12,11 @@ class ViewController: UIViewController {
 
     var results:[Results]?
     @IBOutlet weak private var tblView:UITableView!
+    @IBOutlet weak private var loadingView:UIView! {
+        didSet {
+            loadingView.layer.cornerRadius = 5
+        }
+    }
     private var reuseIdentifier = "articleCell"
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +26,13 @@ class ViewController: UIViewController {
 
     //MARK:- Private Methods
     func setUI() {
+        self.tblView.tableFooterView = UIView()
+        navigationController?.navigationBar.barTintColor = PAConstant.barColor
+        self.title = PAConstant.ArticleListTitle
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.registerXib()
-        self.callApi(path: PAConstant.getArticleURl(path: .path7))
+        self.callApi(path: PAConstant.getArticleURl(path: .path1))
+        
     }
     
     func registerXib() {
@@ -40,6 +50,9 @@ class ViewController: UIViewController {
     
     func callApi(path:String) {
         PANetwrokManager.sharedInstance.execute(requestMethod: .get, path: path, params: nil)  { [weak self] (apiStatus, response) in
+            UIView.animate(withDuration: 0.3) {
+                self?.loadingView.alpha = 0
+            }
             if apiStatus.isSuccess {
                 if let jsonResult = self?.parseResponse(response as! Data) {
                     if let status = jsonResult.status,status.uppercased().contains("OK"), let dataResult = jsonResult.results {

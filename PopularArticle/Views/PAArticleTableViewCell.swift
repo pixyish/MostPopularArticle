@@ -15,6 +15,11 @@ class PAArticleTableViewCell: UITableViewCell {
             self.imgView.layer.cornerRadius = self.imgView.frame.size.width/2
         }
     }
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
+        didSet {
+            activityIndicator.hidesWhenStopped = true
+        }
+    }
     @IBOutlet weak private var titleLbl: UILabel!
     @IBOutlet weak private var descriptionLbl: UILabel!
     @IBOutlet weak private var sectionLbl: UILabel!
@@ -26,9 +31,26 @@ class PAArticleTableViewCell: UITableViewCell {
                 descriptionLbl.text = info.abstract
                 sectionLbl.text     = info.section
                 dateBtn.setTitle(info.published_date, for: UIControl.State.normal)
+                imgView.image = nil
+                if let img = self.imgView.cacheImg(imgName: "\(String(describing: info.id)).jpg") {
+                    self.activityIndicator.stopAnimating()
+                    self.imgView.image = img
+                } else {
+                    if let media  = info.media?.first,let metadata = media.metadata?.first,let urlString = metadata.url  {
+                        activityIndicator.startAnimating()
+                        self.imgView.setImg(imgName: "\(String(describing: info.id)).jpg",  url: urlString) { (isSuccess) in
+                            if !isSuccess {
+                                
+                            }
+                        self.activityIndicator.stopAnimating()
+                        }
+                        
+                    }
+                }
             }
         }
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

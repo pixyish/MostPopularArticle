@@ -48,39 +48,62 @@ enum ApiStatus:String {
 }
 class PANetwrokManager: NSObject {
     static let sharedInstance = PANetwrokManager()
+    let session = URLSession(configuration: .default)
+    var task:URLSessionDataTask?
+    func execute(requestMethod:RequestMethod,path:String,params:[String:Any]?,completion:@escaping(_ status:ApiStatus,_ response:Any?) -> Void) {
        
-       let session = URLSession(configuration: .default)
-       func execute(requestMethod:RequestMethod,path:String,params:[String:Any]?,completion:@escaping(_ status:ApiStatus,_ response:Any?) -> Void) {
-           
-           guard let request = PAURLRequest(reqestMethod: requestMethod, urlString: path, params: params) else {
-               DispatchQueue.main.async {
-                   completion(ApiStatus.invalidURL,nil)
-               }
-               return
-           }
-           
-           var apiStatus = ApiStatus.failed
-           
-           let status = Reach().connectionStatus()
-           switch status {
-           case .unknown,.offline:
-               apiStatus = .noInternet
-               break;
-               default:
-                 break;
-           }
-           if apiStatus == .noInternet {
-               completion(.noInternet,nil)
-               return
-           }
-           
-           session.dataTask(with: request as URLRequest) { (data, response, error) in
-               DispatchQueue.main.async(execute: {
-                   let statusCode = (response as? HTTPURLResponse)?.statusCode
-                   
-                   apiStatus = ApiStatus.statusCode(code: statusCode ?? 999)
-                       completion(apiStatus, data)
-               })
-           }.resume()
-       }
+        guard let request = PAURLRequest(reqestMethod: requestMethod, urlString: path, params: params) else {
+            DispatchQueue.main.async {
+                completion(ApiStatus.invalidURL,nil)
+            }
+            return
+        }
+       
+        var apiStatus = ApiStatus.failed
+       
+        let status = Reach().connectionStatus()
+        switch status {
+        case .unknown,.offline:
+           apiStatus = .noInternet
+           break;
+           default:
+             break;
+        }
+        if apiStatus == .noInternet {
+           completion(.noInternet,nil)
+           return
+        }
+       
+        session.dataTask(with: request as URLRequest) { (data, response, error) in
+           DispatchQueue.main.async(execute: {
+               let statusCode = (response as? HTTPURLResponse)?.statusCode
+               
+               apiStatus = ApiStatus.statusCode(code: statusCode ?? 999)
+                   completion(apiStatus, data)
+           })
+        }.resume()
+    }
+    
+    func getImage(path:String,completion:@escaping(_ img:UIImage?) -> Void) -> Void {
+          var apiStatus = ApiStatus.failed
+          
+          guard let request = PAURLRequest(reqestMethod: .get, urlString: path, params: nil) else {
+                     DispatchQueue.main.async {
+                         completion(nil)
+                     }
+                     return
+                 }
+         task = session.dataTask(with: request as URLRequest) { (data, response, error) in
+              DispatchQueue.main.async(execute: {
+                  let statusCode = (response as? HTTPURLResponse)?.statusCode
+                  apiStatus = ApiStatus.statusCode(code: statusCode ?? 999)
+                  if apiStatus.isSuccess,let imgData = data, let img = UIImage(data: imgData) {
+                      completion(img)
+                  } else {
+                      completion(nil)
+                  }
+              })
+          }
+          task?.resume()
+      }
 }

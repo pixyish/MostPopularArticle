@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r2b-JA-MnI">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -13,35 +13,67 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PopularArticle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yFC-Fn-dbi">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="0qF-0N-gGT"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="uvu-Tz-SZN"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBc-Pj-2og">
+                                <rect key="frame" x="162" y="403" width="90" height="90"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="twE-2s-Htu">
+                                        <rect key="frame" x="25" y="15" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="GS5-Dl-egF"/>
+                                            <constraint firstAttribute="width" constant="40" id="cgn-uJ-wOD"/>
+                                        </constraints>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKz-9j-UHg">
+                                        <rect key="frame" x="5" y="59" width="80" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="gKz-9j-UHg" secondAttribute="bottom" constant="8" id="7kF-AG-0rR"/>
+                                    <constraint firstAttribute="height" constant="90" id="Khh-rT-RSQ"/>
+                                    <constraint firstItem="twE-2s-Htu" firstAttribute="centerY" secondItem="lBc-Pj-2og" secondAttribute="centerY" constant="-10" id="WSu-UA-Pkc"/>
+                                    <constraint firstItem="gKz-9j-UHg" firstAttribute="leading" secondItem="lBc-Pj-2og" secondAttribute="leading" constant="5" id="XM8-R7-D8P"/>
+                                    <constraint firstItem="twE-2s-Htu" firstAttribute="centerX" secondItem="lBc-Pj-2og" secondAttribute="centerX" id="hpd-xR-xd1"/>
+                                    <constraint firstAttribute="trailing" secondItem="gKz-9j-UHg" secondAttribute="trailing" constant="5" id="rcG-o7-FQD"/>
+                                    <constraint firstAttribute="width" secondItem="lBc-Pj-2og" secondAttribute="height" multiplier="1:1" id="zp6-5N-IzV"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yFC-Fn-dbi" secondAttribute="trailing" id="FSQ-jp-8A5"/>
                             <constraint firstItem="yFC-Fn-dbi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="FrM-66-qOM"/>
                             <constraint firstItem="yFC-Fn-dbi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VSb-VX-t2x"/>
+                            <constraint firstItem="lBc-Pj-2og" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oPv-R3-55D"/>
+                            <constraint firstItem="lBc-Pj-2og" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qLS-Ay-MWl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yFC-Fn-dbi" secondAttribute="bottom" id="x9W-o7-Q9r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="dSN-CN-Ou0"/>
                     <connections>
+                        <outlet property="loadingView" destination="lBc-Pj-2og" id="7HY-DQ-0hg"/>
                         <outlet property="tblView" destination="yFC-Fn-dbi" id="aJ0-gS-vq9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="89.732142857142847"/>
+            <point key="canvasLocation" x="1047.2" y="89.505247376311857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZrZ-LO-RE8">
@@ -49,7 +81,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r2b-JA-MnI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rdX-p3-OiO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
