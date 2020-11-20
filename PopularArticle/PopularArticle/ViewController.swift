@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var results:[Results]?
-    @IBOutlet weak private var tblView:UITableView!
+    @IBOutlet weak var tblView:UITableView!
     @IBOutlet weak private var loadingView:UIView! {
         didSet {
             loadingView.layer.cornerRadius = 5
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         self.title = PAConstant.ArticleListTitle
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.registerXib()
-        self.callApi(path: PAConstant.getArticleURl(path: .path1))
+        self.callApi(path: PAConstant.getArticleURl(path: .path7))
         
     }
     
@@ -40,27 +40,17 @@ class ViewController: UIViewController {
         self.tblView.register(cellNib, forCellReuseIdentifier: reuseIdentifier)
     }
     
-    func parseResponse(_ data: Data) -> JSONResult? {
-        do {
-            let decoder = JSONDecoder()
-            let responseModel = try? decoder.decode(JSONResult.self, from: data)
-            return responseModel
-        }
-    }
-    
+    //MARK: - Apis
     func callApi(path:String) {
         PANetwrokManager.sharedInstance.execute(requestMethod: .get, path: path, params: nil)  { [weak self] (apiStatus, response) in
             UIView.animate(withDuration: 0.3) {
                 self?.loadingView.alpha = 0
             }
             if apiStatus.isSuccess {
-                if let jsonResult = self?.parseResponse(response as! Data) {
-                    if let status = jsonResult.status,status.uppercased().contains("OK"), let dataResult = jsonResult.results {
-                            self?.results = dataResult
-                            self?.tblView.reloadData()
-                            print(self?.results?.count ?? 0)
-                     }
-                   }
+                if let result = Parser.parseJsonResult(response: response as! Data) {
+                    self?.results = result
+                    self?.tblView.reloadData()
+                }
             } else {
                 if let self = self {
                     self.showAlert(ttl: apiStatus.title, msg: apiStatus.msg)
@@ -70,6 +60,7 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK:- UITableViewDataSource,UITableViewDelegate
 extension ViewController:UITableViewDataSource,UITableViewDelegate {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.results?.count ?? 0

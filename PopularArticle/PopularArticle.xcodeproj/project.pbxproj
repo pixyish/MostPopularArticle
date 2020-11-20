@@ -26,6 +26,7 @@
 		4BB22EA22566FABA0033AABC /* PAExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB22EA12566FABA0033AABC /* PAExtensions.swift */; };
 		4BB22EA62566FE3A0033AABC /* PAArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB22EA42566FE3A0033AABC /* PAArticleTableViewCell.swift */; };
 		4BB22EA72566FE3A0033AABC /* PAArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB22EA52566FE3A0033AABC /* PAArticleTableViewCell.xib */; };
+		4BB22EA92567C68E0033AABC /* local.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BB22EA82567C68E0033AABC /* local.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		4BB22EA12566FABA0033AABC /* PAExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAExtensions.swift; sourceTree = "<group>"; };
 		4BB22EA42566FE3A0033AABC /* PAArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAArticleTableViewCell.swift; sourceTree = "<group>"; };
 		4BB22EA52566FE3A0033AABC /* PAArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PAArticleTableViewCell.xib; sourceTree = "<group>"; };
+		4BB22EA82567C68E0033AABC /* local.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = local.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 		4BB22E922566DDCA0033AABC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4BB22EA82567C68E0033AABC /* local.json */,
 				4BB22E952566E9DF0033AABC /* Reachabilty */,
 				4BB22E932566DDD90033AABC /* PAConstant.swift */,
 				4BB22EA12566FABA0033AABC /* PAExtensions.swift */,
@@ -309,6 +312,7 @@
 				4BB22E6A2566D9060033AABC /* LaunchScreen.storyboard in Resources */,
 				4BB22E672566D9060033AABC /* Assets.xcassets in Resources */,
 				4BB22E652566D9010033AABC /* Main.storyboard in Resources */,
+				4BB22EA92567C68E0033AABC /* local.json in Resources */,
 				4BB22EA72566FE3A0033AABC /* PAArticleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

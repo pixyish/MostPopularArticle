@@ -23,4 +23,25 @@ class PAConstant: NSObject {
         let imgUrlString = "https://api.nytimes.com/svc/mostpopular/v2/viewed/\(path.rawValue).json?api-key=\(self.apiKey)"
         return imgUrlString
     }
+    
+}
+
+class Parser:NSObject {
+    
+    class func parseResponse(_ data: Data) -> JSONResult? {
+          do {
+              let decoder = JSONDecoder()
+              let responseModel = try? decoder.decode(JSONResult.self, from: data)
+              return responseModel
+          }
+    }
+    class func parseJsonResult(response:Data) -> [Results]? {
+        if let jsonResult = self.parseResponse(response) {
+            if let status = jsonResult.status,status.uppercased().contains("OK"), let dataResult = jsonResult.results {
+                   return dataResult
+            }
+        }
+        return nil
+    }
+
 }
